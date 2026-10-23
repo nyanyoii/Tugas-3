@@ -1,0 +1,778 @@
+/* ===== KOSPAKET - PASTEL SKY BLUE ===== */
+
+:root {
+  --bg: #edf7ff;
+  --sidebar: #e0f0ff;
+  --blue: #5b9fe3;
+  --blue-dark: #367dbb;
+  --blue-light: #e5f3ff;
+  --text: #263d52;
+  --muted: #8192a4;
+  --border: #e4edf5;
+  --white: #ffffff;
+  --shadow: 0 6px 24px rgba(66, 125, 177, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* LAYOUT UTAMA */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+  overflow-x: hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 250px;
+  min-height: 100vh;
+  padding: 25px 17px;
+  background: var(--sidebar);
+  border-right: 1px solid #d4e8fa;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 28px;
+}
+
+.sidebar-brand strong {
+  display: block;
+  color: #315f8b;
+  font-size: 20px;
+}
+
+.sidebar-brand small,
+.profile-mini small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 14px;
+}
+
+.brand-icon.small {
+  flex-shrink: 0;
+}
+
+.sidebar-label {
+  margin: 0 0 10px;
+  padding-left: 10px;
+  color: #8297aa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 13px;
+  color: #59738b;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+}
+
+.nav-item:hover {
+  color: var(--blue-dark);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.nav-item.active {
+  color: var(--blue-dark);
+  background: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(65, 126, 181, 0.08);
+}
+
+.nav-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 23px;
+  font-size: 18px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+.profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 7px;
+  border-top: 1px solid #cfe3f6;
+}
+
+.profile-mini strong {
+  display: block;
+  max-width: 150px;
+  overflow: hidden;
+  color: #385a78;
+  font-size: 13px;
+  text-overflow: ellipsis;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  color: #3479b6;
+  background: white;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 11px;
+  color: #b45b67;
+  background: #fff5f5;
+  border: 1px solid #f7e0e3;
+  border-radius: 10px;
+}
+
+.logout-button:hover {
+  background: #ffe9ec;
+}
+
+/* TOPBAR */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.topbar-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.topbar-user {
+  padding: 8px 12px;
+  color: #547694;
+  background: #f0f8ff;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* JUDUL HALAMAN */
+
+.page-heading {
+  margin-bottom: 25px;
+}
+
+.page-heading h1 {
+  margin: 0 0 9px;
+  color: var(--text);
+  font-size: clamp(24px, 3vw, 30px);
+  letter-spacing: -0.7px;
+}
+
+.page-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* KARTU STATISTIK */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  min-width: 0;
+  padding: 21px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(66, 125, 177, 0.12);
+}
+
+.stat-card > span {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  margin-bottom: 17px;
+  color: var(--blue-dark);
+  background: var(--blue-light);
+  border-radius: 13px;
+  font-size: 20px;
+}
+
+.stat-card p {
+  margin: 0 0 9px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  margin: 0;
+  color: #347fbd;
+  font-size: 30px;
+}
+
+/* BAGIAN PAKET TERBARU */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 17px;
+}
+
+.section-heading h2,
+.panel-heading h2 {
+  margin: 0 0 6px;
+  font-size: 19px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* PANEL DAN FORM */
+
+.panel {
+  min-width: 0;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  box-shadow: var(--shadow);
+}
+
+.form-panel {
+  max-width: 900px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #526b81;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.filter-bar input,
+.filter-bar select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 13px;
+  color: var(--text);
+  background: #fbfdff;
+  border: 1px solid #dce7f1;
+  border-radius: 10px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.filter-bar input:focus,
+.filter-bar select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(91, 159, 227, 0.12);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+/* TOMBOL */
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.primary-button {
+  color: white;
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  box-shadow: 0 4px 10px rgba(91, 159, 227, 0.16);
+}
+
+.primary-button:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+}
+
+.secondary-button {
+  color: #55738e;
+  background: white;
+  border: 1px solid #dce7f1;
+}
+
+.secondary-button:hover {
+  background: #f1f8ff;
+}
+
+/* TABEL */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #f1f8ff;
+}
+
+th {
+  color: #688199;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+th,
+td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #edf2f7;
+  white-space: nowrap;
+}
+
+td {
+  color: #536a7f;
+  font-size: 13px;
+}
+
+td strong {
+  color: #354e65;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+.status-select {
+  max-width: 180px;
+  min-height: 36px;
+  padding: 7px 9px;
+  color: #4b7699;
+  background: #f3f9ff;
+  border: 1px solid #dceafa;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 7px 10px;
+  color: #3679b2;
+  background: #e8f4ff;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.status-sudah-diambil {
+  color: #287b59;
+  background: #e1f7eb;
+}
+
+.status-badge.status-disimpan {
+  color: #8a6a22;
+  background: #fff3d4;
+}
+
+.status-badge.status-menunggu-diambil {
+  color: #3479ae;
+  background: #e5f3ff;
+}
+
+/* PENCARIAN DAN FILTER */
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(150px, 220px);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.count-label {
+  padding: 7px 11px;
+  color: #477eae;
+  background: #eaf5ff;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.table-footnote {
+  margin: 15px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.empty-state {
+  padding: 32px 18px;
+  color: var(--muted);
+  background: #f8fbff;
+  border: 1px dashed #d5e5f3;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.notice-message {
+  margin: 0;
+  padding: 12px 14px;
+  color: #3978a9;
+  background: #eaf5ff;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .main-content {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 17px;
+  }
+
+  .sidebar-brand {
+    padding-bottom: 17px;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar-bottom {
+    padding-top: 15px;
+  }
+
+  .profile-mini {
+    margin-top: 10px;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .topbar {
+    margin-bottom: 23px;
+    padding: 13px;
+  }
+
+  .stats-grid {
+    gap: 11px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card h2 {
+    font-size: 25px;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  th,
+  td {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-nav {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== KOSPAKET LOGIN - PASTEL SKY BLUE ===== */
+
+.login-page,
+.login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  background:
+    radial-gradient(ellipse at top left, #d4ebff 0%, transparent 48%),
+    linear-gradient(135deg, #f4faff 0%, #e6f3ff 55%, #dceeff 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 410px;
+  padding: 36px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e2eef9;
+  border-radius: 24px;
+  box-shadow: 0 18px 55px rgba(70, 125, 175, 0.13);
+}
+
+.login-card h1,
+.login-card h2 {
+  margin: 0 0 10px;
+  color: #2d4c68;
+  text-align: center;
+  font-size: 27px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+.login-card p {
+  margin: 0 0 25px;
+  color: #8295a8;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 8px;
+  color: #49647d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-card input,
+.login-card select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0 14px;
+  color: #2d4c68;
+  background: #f9fcff;
+  border: 1px solid #dce9f5;
+  border-radius: 11px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-card input::placeholder {
+  color: #a7b6c4;
+}
+
+.login-card input:focus,
+.login-card select:focus {
+  border-color: #75b5ed;
+  box-shadow: 0 0 0 4px rgba(91, 159, 227, 0.12);
+}
+
+.login-card button[type="submit"] {
+  width: 100%;
+  min-height: 47px;
+  margin-top: 5px;
+  padding: 12px 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #70b4ed, #4e97db);
+  border: 0;
+  border-radius: 11px;
+  box-shadow: 0 6px 15px rgba(78, 151, 219, 0.2);
+  font-size: 14px;
+  font-weight: 650;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-card button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 9px 20px rgba(78, 151, 219, 0.28);
+}
+
+.login-card button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.login-card .notice-message {
+  margin: 0;
+  padding: 11px 13px;
+  color: #b34e5b;
+  background: #fff0f1;
+  border: 1px solid #f8dfe2;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .login-page,
+  .login-container {
+    padding: 18px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .login-card h1,
+  .login-card h2 {
+    font-size: 24px;
+  }
+}
